@@ -34,7 +34,24 @@ var uiConfig = {
     tosUrl: '<your-tos-url>',
     // Privacy policy url.
     privacyPolicyUrl: '<your-privacy-policy-url>'
+
+    
 };
+
+
+// ------------------ Ths does not work, its supposed to make existing accounts login without problem. ------------------
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/v8/firebase.User
+        var uid = user.uid;
+        // ...
+    } else {
+        // User is signed out
+        // ...
+    }
+});
+
 
 //this method will wait until DOM is loaded
 ui.start('#firebaseui-auth-container', uiConfig);
